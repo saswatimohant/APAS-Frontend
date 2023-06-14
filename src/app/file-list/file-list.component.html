@@ -1,0 +1,55 @@
+<mat-card>
+    <!-- {{filesL | json}} -->
+<div class="container">
+    <div>
+<h2>Invoices</h2>
+<div class="text-right">
+    <button class="btn btn-primary" (click)="refreshPage()" >Refresh</button>
+</div>
+<table class="table table-bordered">
+    <thead class="cell-grey">
+        <tr>
+            <th>Id</th>
+            <th>File Name</th>
+            <th>Vendor Name</th>
+            <th>Invoice Date</th>
+            <th>Due Date</th>
+            <th>Amount</th>
+            <th>Waiting At Stage</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let file of filesL | paginate: {itemsPerPage: count, currentPage: p}">
+             <td><a href="http://localhost:8080/file/download/{{file.fileName}}">{{file.id}}</a></td>
+            <td>{{file.fileName}}</td>
+            <td>{{invoiceheader.VendorName}}</td>
+            <td>{{invoiceheader.DATE}}</td>
+            <td>{{invoiceheader.DUEDATE}}</td>
+            <td>{{invoicefooter.TOTAL}}</td>
+            <td>Manager</td>
+           <td>
+               <!-- <button (click)="fileDetails(file.id)" class="btn btn-primary">View</button>
+               <button (click)= "updateFile(file.id)" class="btn btn-info" style="margin-left: 10px;">Update</button>
+               <button (click)= "deleteFile(file.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> -->
+               <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-lg-6">
+                            <mat-icon (click)="fileDetails(file.id)" aria-hidden="false" aria-label="Example home icon" fontIcon="preview">info</mat-icon>
+                    </div>
+                    <div class="col-lg-6">
+                            <mat-icon class="red-icon" (click)="deleteFile(file.id)" aria-hidden="false" aria-label="Example home icon" fontIcon="clear">clear</mat-icon>
+                    </div>
+                    </div>
+                </div>
+           </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="text-right">
+    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+</div>
+</div>
+</mat-card>

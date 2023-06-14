@@ -1,0 +1,104 @@
+<div class="container-fluid">
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 scrollable" style="height:400px">
+            <img src="../../assets/Invoice_91SB.jpg" width="650" height="500" alt="Invoice" />
+        </div>
+        <div class="col-sm-6 scrollable" style="height:400px">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="cell-grey">Type:</th>
+                        <td class="bg-white">{{invoiceheader.Type}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Vendor Name:</th>
+                        <td class="bg-white">{{invoiceheader.VendorName}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Bill To:</th>
+                        <td class="bg-white">{{invoiceheader.BILLTO}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">State Code:</th>
+                        <td class="bg-white">{{invoiceheader.StateCode}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">GSTIN No:</th>
+                        <td class="bg-white">{{invoiceheader.GSTIN}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Terms:</th>
+                        <td class="bg-white">{{invoiceheader.TERMS}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Due Date:</th>
+                        <td class="bg-white">{{invoiceheader.DUEDATE}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Sub Total:</th>
+                        <td class="bg-white">{{invoicefooter.SUBTOTAL}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">CGST:</th>
+                        <td class="bg-white">{{invoicefooter.CGST}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">SGST:</th>
+                        <td class="bg-white">{{invoicefooter.SGST}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">IGST:</th>
+                        <td class="bg-white">{{invoicefooter.IGST}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Total:</th>
+                        <td class="bg-white">{{invoicefooter.TOTAL}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Balance Due:</th>
+                        <td class="bg-white">{{invoicefooter.BALANCEDUE}}</td>
+                    </tr>
+                    <tr>
+                        <th class="cell-grey">Payment:</th>
+                        <td class="bg-white">{{invoicefooter.PAYMENT}}</td>
+                    </tr>
+                </table>
+           </div>
+        </div>
+    <hr>
+</section>
+
+<section class="container-fluid pt-2">
+    <div class="col-sm-12">
+        <table class="table table-bordered">
+            <thead class="cell-grey">
+                <tr>
+                    <th>Order Number</th>
+                    <th>Item Description</th>
+                    <th>HSN/SAC</th>
+                    <th>Rate</th>
+                    <!--th>IGST</th-->
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--*ngFor= "let invoicegrids of invoicegrid"  -->
+                <tr *ngFor= "let invoicegrids of invoicegrid">
+                    <td class="bg-white">{{invoicegrids.NO}}</td>
+                    <td class="bg-white">{{invoicegrids.ACTIVITY}}</td>
+                    <td class="bg-white">{{invoicegrids.HSNSAC}}</td>
+                    <td class="bg-white">{{invoicegrids.RATE}}</td>
+                    <td class="bg-white">{{invoicegrids.QTY}}</td>
+                    <td class="bg-white">{{invoicegrids.AMOUNT}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pb-3" align="right">
+            <button (click)="rejectInvoice()" class="btn btn-primary btn-lg mat-raised-button mat-reject">Reject</button>&nbsp;
+            <button (click)="approveInvoice()" class="btn btn-primary btn-lg mat-raised-button mat-success">Approve</button>
+        </div>
+    </div>
+
+</section>
+</div>

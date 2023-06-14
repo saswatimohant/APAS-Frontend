@@ -1,0 +1,14 @@
+.scrollable
+{
+    overflow: scroll;
+    max-width: 800px;
+    max-height: 680px;
+}
+.cell-grey{
+    background-color: #a3a3e8d2;
+  }
+
+.height60
+{
+    height: 60%     !important;
+}
